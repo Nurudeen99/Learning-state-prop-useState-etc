@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaToggleOn,FaToggleOff } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useDarkMode } from "../context/Context";
 
 const Container = ({children}) => {
     const [isDark,setisDark]= useState(false)
@@ -8,6 +9,8 @@ const Container = ({children}) => {
     const handleToggle=()=>{
         setisDark(!isDark)
     }
+
+    // const isDark = useDarkMode()
   return (
     <>
     <div className={`${isDark?"text-white bg-gray-700":"text-black bg-white"}`}>

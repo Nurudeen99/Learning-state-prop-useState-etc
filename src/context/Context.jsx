@@ -1,14 +1,24 @@
-import { createContext } from "react"
+import { createContext, useContext } from "react"
 
 
-const DarkMode = createContext()
+export const DarkMode = createContext()
+export const handleToggleDarkMode = createContext()
+
+export function useDarkMode(){
+  return useContext(DarkMode)
+}
+export function usehandleToggleDarkMode(){
+  return useContext(handleToggleDarkMode)
+}
 
 
 const GlobalContext = ({children})=>{
 
     return (
-        <DarkMode.Provider>
-          {children}
+        <DarkMode.Provider >
+          <handleToggleDarkMode.Provider>
+              {children}
+          </handleToggleDarkMode.Provider>
         </DarkMode.Provider>
     )
 }
